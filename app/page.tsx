@@ -1,7 +1,16 @@
-export default function Home() {
+import prisma from "@/prisma/client";
+
+export default async function Home() {
+  const data = await prisma.toDos.findMany();
+  console.log(data);
+
   return (
     <main>
-      <h1>Hello world</h1>
+      <div>
+        {data.map((todo: any) => {
+          return <p key={todo.id}>{todo.title}</p>;
+        })}
+      </div>
     </main>
   );
 }
