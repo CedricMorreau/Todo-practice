@@ -55,7 +55,7 @@ export default function Todo(props: any) {
   };
 
   return (
-    <div className="flex gap-5">
+    <div className="flex  gap-5">
       {editable ? (
         <input ref={inputRef} type="text" defaultValue={props.todo.title} />
       ) : (
@@ -64,27 +64,29 @@ export default function Todo(props: any) {
           <span>|</span>
         </>
       )}
-      <button
-        className=" px-2  group transition duration-800 ease-out"
-        onClick={() => deleteTodo()}>
-        <span className="inline-block h-7 bg-left-bottom bg-gradient-to-r from-red-500 to-red-500 bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-500 ease-out cursor-pointer">
-          Delete todo
-        </span>
-      </button>
-      <button
-        onClick={() => setEditable(true)}
-        className="px-2 group transition duration-800 ease-out">
-        <span className="inline-block h-7 bg-left-bottom bg-gradient-to-r from-orange-500 to-orange-500 bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-500 ease-out cursor-pointer">
-          Edit
-        </span>
-      </button>
-      <button
-        onClick={editTodo}
-        className="px-2 group transition duration-800 ease-out">
-        <span className="inline-block h-7 bg-left-bottom bg-gradient-to-r from-green-500 to-green-500 bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-500 ease-out cursor-pointer">
-          Save
-        </span>
-      </button>
+      <div>
+        <button
+          className=" px-2  group transition duration-800 ease-out"
+          onClick={() => deleteTodo()}>
+          <span className="inline-block h-7 bg-left-bottom bg-gradient-to-r from-red-500 to-red-500 bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-500 ease-out cursor-pointer">
+            Delete todo
+          </span>
+        </button>
+        <button
+          onClick={() => setEditable(true)}
+          className="px-2 group transition duration-800 ease-out">
+          <span className="inline-block h-7 bg-left-bottom bg-gradient-to-r from-orange-500 to-orange-500 bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-500 ease-out cursor-pointer">
+            Edit
+          </span>
+        </button>
+        <button
+          onClick={editTodo}
+          className="px-2 group transition duration-800 ease-out">
+          <span className="inline-block h-7 bg-left-bottom bg-gradient-to-r from-green-500 to-green-500 bg-[length:100%_2px] bg-no-repeat group-hover:bg-[length:0%_2px] transition-all duration-500 ease-out cursor-pointer">
+            Save
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

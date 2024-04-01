@@ -17,26 +17,25 @@ export default async function Home() {
 
   return (
     <main className="h-screen w-screen flex justify-center items-center">
-      <div className="flex justify-center gap-36 relative items-center flex-col h-5/6  w-4/6">
+      <div className="flex justify-center gap-10 relative items-center flex-col w-full h-full lg:h-5/6  lg:w-4/6">
         <Image
           src="/list.webp"
           fill
           placeholder="blur"
           blurDataURL="data:..."
           style={{
-            objectFit: "cover",
             zIndex: -1,
           }}
           priority
           alt="background list"
           title="background list"
         />
-        <h1 className="text-6xl">To do list {formattedDate} </h1>
+        <h1 className="text-2xl lg:text-6xl">To do list {formattedDate} </h1>
         <div>
           <div className="flex justify-center">
             <Form />
           </div>
-          <div className="flex mt-20 text-2xl flex-col gap-5">
+          <div className="flex mt-20 lg:text-2xl flex-col gap-5">
             {data.map((todo: any, index: number) => {
               return (
                 <React.Fragment key={index}>
