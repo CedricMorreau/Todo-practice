@@ -3,6 +3,7 @@ import Form from "@/components/Form";
 import Todo from "@/components/Todo";
 import Image from "next/image";
 import React from "react";
+import ClientTodo from "@/components/ClientTodo";
 
 const today = new Date();
 const formatter = new Intl.DateTimeFormat("en-US", {
@@ -14,7 +15,7 @@ const formattedDate = formatter.format(today);
 
 export default async function Home() {
   const data = await prisma.toDos.findMany();
-  console.log(data)
+
 
   return (
     <main className="h-screen w-screen flex justify-center items-center">
@@ -36,15 +37,7 @@ export default async function Home() {
           <div className="flex justify-center">
             <Form />
           </div>
-          <div className="flex mt-20 lg:text-2xl flex-col gap-5">
-            {data.map((todo: any, index: number) => {
-              return (
-                <React.Fragment key={index}>
-                  <Todo todo={todo} />
-                </React.Fragment>
-              );
-            })}
-          </div>
+          <ClientTodo data={data} />
         </div>
         <span>made by Cedric Morreau</span>
       </div>
