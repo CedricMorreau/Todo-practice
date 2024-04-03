@@ -12,13 +12,10 @@ const formatter = new Intl.DateTimeFormat("en-US", {
 });
 const formattedDate = formatter.format(today);
 
-const getPosts = async () => {
-  const data = await prisma.toDos.findMany();
-  return data;
-};
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const data = await getPosts();
+  const data = await prisma.toDos.findMany();
 
   return (
     <main className="h-screen w-screen flex justify-center items-center">
