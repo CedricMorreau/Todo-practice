@@ -14,6 +14,7 @@ const formattedDate = formatter.format(today);
 
 export default async function Home() {
   const data = await prisma.toDos.findMany();
+  console.log(data)
 
   return (
     <main className="h-screen w-screen flex justify-center items-center">
